@@ -1,95 +1,138 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center gap-4 text-white text-center min-h-[44vh]">
+        <div className="flex items-center justify-center gap-3 text-5xl font-bold">
+          <span>Give Me A Smile</span>
+          <Image
+            src="/love-you-emojis.gif"
+            alt="Give Me A Smile"
+            width={48}
+            height={48}
+            unoptimized
+          />
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <p className="text-gray-300">A Funding Platform</p>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <div className="flex gap-4 mt-2">
+          <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5">
+            Start Now
+          </button>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5">
+            Read More
+          </button>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+      {/* Divider */}
+      <div className="h-px bg-white/10" />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* Features Section */}
+      <section className="container px-6 mx-auto text-white">
+        <h1 className="text-xl font-bold text-center my-14">
+          Your fans can give you a smile
+        </h1>
+
+        <div className="flex flex-wrap justify-center gap-12">
+          {/* Card */}
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="logo.png"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Fund Yourself</p>
+            <p className="text-sm text-gray-300">
+              Your fans are available
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="sakura-pink.gif"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Get Support</p>
+            <p className="text-sm text-gray-300">
+              Simple and friendly donations
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="moneda.gif"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Earn Smiles</p>
+            <p className="text-sm text-gray-300">
+              Turn love into funding
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="container px-6 mx-auto text-white">
+        <h1 className="text-xl font-bold text-center my-14">
+          Your fans can give you a smile
+        </h1>
+
+        <div className="flex flex-wrap justify-center gap-12">
+          {/* Card */}
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="logo.png"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Fund Yourself</p>
+            <p className="text-sm text-gray-300">
+              Your fans are available
+            </p>
+          </div>
+
+
+           {/* Divider */}
+      <div className="h-14 bg-white/10" />
+
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="sakura-pink.gif"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Get Support</p>
+            <p className="text-sm text-gray-300">
+              Simple and friendly donations
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center gap-3 max-w-[200px]">
+            <img
+              src="moneda.gif"
+              alt=""
+              width={88}
+              className="p-3 rounded-full bg-slate-400"
+            />
+            <p className="font-bold">Earn Smiles</p>
+            <p className="text-sm text-gray-300">
+              Turn love into funding
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
