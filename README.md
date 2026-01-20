@@ -1,10 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GiveMeASmile
+
+A modern funding platform to spread smiles and support creators. Users can donate, track their contributions, and creators can monitor earnings through a smooth and responsive interface.
+
+## Features
+
+- User authentication with **NextAuth**
+- Responsive **front page** with fun branding
+- Personalized **dashboard** and **profile/earnings pages**
+- Dropdown navigation for quick access to **Dashboard**, **Earnings**, **Settings**, and **Sign out**
+- Mobile-friendly layout using **Tailwind CSS**
+- Fully functional **login/logout** system
+- Easy to extend for future features like donations, funding campaigns, or creator analytics
+
+## Tech Stack
+
+- **Frontend:** Next.js, React
+- **Authentication:** NextAuth.js
+- **Styling:** Tailwind CSS
+- **Images/Assets:** Next.js Image component
+- **Version Control:** Git & GitHub
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js >= 18
+- npm or yarn
+- Git
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
+<<<<<<< HEAD
 npm run dev
 # or
 yarn dev
@@ -40,3 +69,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <!-- git add .
 git commit -m "Your message"
 git push -->
+=======
+git clone https://github.com/saksham2064/GiveMeASmile.git
+>>>>>>> dd5f6dfe5b7b721f668349e0a6dab768140d111c
