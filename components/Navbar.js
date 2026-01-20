@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
@@ -8,6 +8,18 @@ import { useSession, signOut } from "next-auth/react";
 const Navbar = () => {
   const { data: session, status } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="relative flex items-center justify-between p-4 bg-gray-900 text-teal-50">
@@ -20,33 +32,22 @@ const Navbar = () => {
           height={24}
           unoptimized
         />
-        <Link href={"/"}>
-        <span>GiveMeASmile</span>
-        </Link>
+        <Link href="/">GiveMeASmile</Link>
       </div>
 
       {/* Right side */}
       <div className="relative flex items-center gap-4">
-        {/* Loading state */}
         {status === "loading" && <span>Loading...</span>}
 
-        {/* Logged-in session */}
         {session && (
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             <button
-           onBlur={() => {
-  setTimeout(() => {
-    setDropdownOpen(false);
-  }, 200);
-}}
-
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+              onClick={() => setDropdownOpen((prev) => !prev)}
               className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
             >
               {session.user.name || session.user.email}
             </button>
 
-            {/* Dropdown menu */}
             {dropdownOpen && (
               <div className="absolute right-0 z-20 w-48 mt-2 bg-gray-800 rounded-md shadow-lg">
                 <Link
@@ -56,6 +57,7 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
+
                 <Link
                   href="/profile"
                   className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
@@ -63,6 +65,7 @@ const Navbar = () => {
                 >
                   Earnings
                 </Link>
+
                 <Link
                   href="/settings"
                   className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
@@ -70,9 +73,10 @@ const Navbar = () => {
                 >
                   Settings
                 </Link>
+
                 <button
                   onClick={() => {
-                    signOut();
+                    signOut({ callbackUrl: "/login" });
                     setDropdownOpen(false);
                   }}
                   className="w-full px-4 py-2 text-sm text-left text-white hover:bg-gray-700"
@@ -84,7 +88,6 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Logged-out state */}
         {!session && status !== "loading" && (
           <Link href="/login">
             <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-md text-sm px-5 py-2.5">
